@@ -1,0 +1,46 @@
+// Variables
+
+// ----- Fonts
+$viga: "Viga", sans-serif;
+$roboto: "Roboto", sans-serif;
+
+// ----- Colors
+$navbar-blue: #32229c;
+$navbar-text: white;
+
+// Navbar
+
+.navbar {
+  padding-left: 40px;
+  padding-right: 40px;
+  background-color: $navbar-blue;
+}
+
+.navbar-brand {
+  font-family: $viga;
+  font-size: 3rem;
+  color: $navbar-text;
+}
+
+.nav-link {
+  font-family: $roboto;
+  color: $navbar-text;
+  font-weight: 500;
+  font-size: 1.5rem;
+}
+
+// App
+
+.body {
+  background-image: url("https://images.pexels.com/photos/1616403/pexels-photo-1616403.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+  background-repeat: no-repeat;
+}
+
+.container {
+  margin: 50px;
+}
+
+.zipcode-form {
+  width: 65%;
+  background-color: white;
+}
