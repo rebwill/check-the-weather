@@ -38,7 +38,7 @@ class App extends Component {
         data => {
           this.setState({
             isLoaded: true,
-            weather: data.current
+            weather: data
           });
         },
         error => {
@@ -55,21 +55,21 @@ class App extends Component {
       return (
         <div>
           <Navbar />
-          <div className="container">
-            <form onSubmit={this.handleSubmit} className="zipcode-form">
-              <div className="form-info">
-                Enter a US zipcode here to get current weather conditions.
-              </div>
-              <label>
-                US Zipcode:
+          <div className="background-container">
+            <div className="content-container">
+              <form onSubmit={this.handleSubmit} className="zipcode-form">
+                <h2>
+                  Enter a US zipcode here to get current weather conditions.
+                </h2>
                 <input
+                  className="input-field"
                   type="text"
                   value={this.state.zipCode}
                   onChange={this.handleChange}
                 />
-              </label>
-              <input type="submit" value="Submit" />
-            </form>
+                <input className="submit-btn" type="submit" value="Submit" />
+              </form>
+            </div>
           </div>
         </div>
       );
@@ -77,35 +77,50 @@ class App extends Component {
       return (
         <div>
           <Navbar />
-          <div className="container">
-            <h1>Here's the weather you requested:</h1>
-            <p>
-              Temperature: {weather.temp_f} °F
-              <br />
-              Humidity: {weather.humidity}%<br />
-              Feels like: {weather.feelslike_f} F
-              <br />
-              Wind speed: {weather.wind_mph} mph
-              <br />
-              Wind gusts speed: {weather.gust_mph} mph
-              <br />
-              Wind direction: {weather.wind_dir}
-              <br />
-              Cloud cover: {weather.cloud}%<br />
-              Precipitation: {weather.precip_in} inches
-            </p>
-            <h1>Want to check another location?</h1>
-            <form onSubmit={this.handleSubmit}>
-              <label>
-                US Zipcode:
+          <div className="background-container">
+            <div className="content-container">
+              <form onSubmit={this.handleSubmit} className="zipcode-form">
+                <h2>
+                  Enter a US zipcode here to get current weather conditions.
+                </h2>
                 <input
+                  className="input-field"
                   type="text"
                   value={this.state.zipCode}
                   onChange={this.handleChange}
                 />
-              </label>
-              <input type="submit" value="Submit" />
-            </form>
+                <input className="submit-btn" type="submit" value="Submit" />
+              </form>
+              <div className="results-box">
+                <h2>
+                  Here's what it's doing in {weather.location.name},{" "}
+                  {weather.location.region}:
+                </h2>
+                <p>
+                  <strong>Temperature: </strong>
+                  {weather.current.temp_f}°F
+                  <br />
+                  <strong>Humidity: </strong>
+                  {weather.current.humidity}%<br />
+                  <strong>Feels like: </strong>
+                  {weather.current.feelslike_f}°F
+                  <br />
+                  <strong>Wind speed: </strong>
+                  {weather.current.wind_mph} mph
+                  <br />
+                  <strong>Wind gust speed: </strong>
+                  {weather.current.gust_mph} mph
+                  <br />
+                  <strong>Wind direction: </strong>
+                  {weather.current.wind_dir}
+                  <br />
+                  <strong>Cloud cover: </strong>
+                  {weather.current.cloud}%<br />
+                  <strong>Precipitation: </strong>
+                  {weather.current.precip_in} inches
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       );

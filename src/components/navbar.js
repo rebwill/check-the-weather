@@ -4,7 +4,7 @@ class Navbar extends Component {
   render() {
     return (
       <nav className="navbar">
-        <a className="navbar-brand" href="/">
+        <a className="navbar-title" href="/">
           What's the Weather?{" "}
           <span role="img" aria-label="cloud emoji">
             🌦️

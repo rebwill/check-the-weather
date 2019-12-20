@@ -1,46 +1,105 @@
-// Variables
+// 🔶🔶 VARIABLES 🔶🔶
 
-// ----- Fonts
+// Fonts
 $viga: "Viga", sans-serif;
 $roboto: "Roboto", sans-serif;
 
-// ----- Colors
+// Colors
 $navbar-blue: #32229c;
-$navbar-text: white;
+$navbar-blue-trans: rgba(50, 34, 156, 0.5);
+$navbar-turquoise: #003641;
+$light-turq: #7ea2ae;
+
+// ----------------------------------------------------------------------
+
+// 🔶🔶 COMPONENTS 🔶🔶
 
 // Navbar
 
 .navbar {
-  padding-left: 40px;
-  padding-right: 40px;
-  background-color: $navbar-blue;
+  padding-left: 45px;
+  padding-right: 45px;
+  background-color: white;
+  color: $navbar-turquoise;
+  a:hover {
+    color: $navbar-turquoise;
+    text-decoration: none;
+  }
+  a:visited {
+    color: $navbar-turquoise;
+  }
 }
 
-.navbar-brand {
+.navbar-title {
   font-family: $viga;
   font-size: 3rem;
-  color: $navbar-text;
 }
 
 .nav-link {
   font-family: $roboto;
-  color: $navbar-text;
+  color: $navbar-turquoise;
   font-weight: 500;
   font-size: 1.5rem;
 }
 
 // App
 
-.body {
-  background-image: url("https://images.pexels.com/photos/1616403/pexels-photo-1616403.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+.background-container {
+  height: 100vh;
+  background-image: url("https://images.pexels.com/photos/2317685/pexels-photo-2317685.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
   background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 
-.container {
-  margin: 50px;
+.content-container {
+  margin-left: 45px;
+  margin-right: 45px;
+  margin-top: 45px;
+  position: absolute;
 }
 
 .zipcode-form {
-  width: 65%;
-  background-color: white;
+  // width: 65%;
+  background-color: rgb(255, 255, 255);
+  padding: 30px;
+  border-radius: 20px;
+  margin-bottom: 40px;
+  h2 {
+    font-family: $roboto;
+    font-weight: 500;
+    font-size: 1.5rem;
+    color: $navbar-turquoise;
+    padding-bottom: 1rem;
+  }
+  input {
+    height: 35px;
+    border-radius: 5px;
+    margin-right: 15px;
+  }
+  .input-field {
+    font-family: $roboto;
+  }
+  .submit-btn {
+    font-family: $roboto;
+    // font-weight: 500;
+    background-color: $light-turq;
+  }
+}
+
+.results-box {
+  background-color: rgb(255, 255, 255);
+  padding: 30px;
+  border-radius: 20px;
+  h2 {
+    font-family: $roboto;
+    font-weight: 500;
+    font-size: 1.5rem;
+    color: $navbar-turquoise;
+    padding-bottom: 1rem;
+  }
+  p {
+    font-family: $roboto;
+    line-height: 2rem;
+  }
 }
