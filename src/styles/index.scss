@@ -82,7 +82,6 @@ $light-turq: #7ea2ae;
   }
   .submit-btn {
     font-family: $roboto;
-    // font-weight: 500;
     background-color: $light-turq;
   }
 }
@@ -101,5 +100,37 @@ $light-turq: #7ea2ae;
   p {
     font-family: $roboto;
     line-height: 2rem;
+  }
+  .btn-left {
+    font-family: $roboto;
+    border-color: $light-turq;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+    border-bottom-right-radius: 0px;
+    border-top-right-radius: 0px;
+    margin-bottom: 1rem;
+  }
+  .btn-right {
+    font-family: $roboto;
+    border-color: $light-turq;
+    border-bottom-left-radius: 0px;
+    border-top-left-radius: 0px;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+    margin-bottom: 1rem;
+  }
+  .fahrenheit {
+    color: red;
+  }
+  .celsius {
+    color: purple;
+  }
+  .toggle-active-dark {
+    background-color: $light-turq;
+    color: white;
+  }
+  .toggle-inactive-light {
+    background-color: white;
+    color: $light-turq;
   }
 }
