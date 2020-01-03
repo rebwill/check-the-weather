@@ -37,7 +37,7 @@ class Home extends Component {
   fetchWeather = () => {
     let zipCodeParam = this.state.zipCode;
     fetch(
-      `http://api.weatherapi.com/v1/current.json?key=5b42e62dd43941e18fd195730191712&q=${zipCodeParam}`
+      `https://api.weatherapi.com/v1/current.json?key=5b42e62dd43941e18fd195730191712&q=${zipCodeParam}`
     )
       .then(res => res.json())
       .then(
