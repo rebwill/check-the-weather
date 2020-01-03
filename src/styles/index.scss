@@ -159,3 +159,25 @@ $light-turq: #7ea2ae;
     color: $light-turq;
   }
 }
+
+// About page
+
+.about-box {
+  background-color: rgb(255, 255, 255);
+  padding: 30px;
+  border-radius: 20px;
+  font-family: $roboto;
+  width: 75vw;
+  h2 {
+    font-family: $roboto;
+    font-weight: 500;
+    font-size: 1.5rem;
+    color: $navbar-turquoise;
+    padding-bottom: 1rem;
+  }
+}
+@media screen and (max-width: 768px) {
+  .about-box {
+    width: auto;
+  }
+}
