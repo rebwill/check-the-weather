@@ -1,9 +1,6 @@
 import React, { Component } from "react";
-// import { Navbar } from "./components/navbar";
 import "../styles/index.scss";
-// import logo from "./logo.svg";
-// import "./App.css";
-// import Weather from "./components/weather";
+import InputForm from "./inputForm";
 
 class Home extends Component {
   constructor(props) {
@@ -13,7 +10,7 @@ class Home extends Component {
       error: null,
       isLoaded: false,
       weather: [],
-      zipCode: 0,
+      zipCode: "",
       btnLeft: "toggle-active-dark",
       btnRight: "toggle-inactive-light",
       tempScale: "fahrenheit"
@@ -39,7 +36,13 @@ class Home extends Component {
     fetch(
       `https://api.weatherapi.com/v1/current.json?key=5b42e62dd43941e18fd195730191712&q=${zipCodeParam}`
     )
-      .then(res => res.json())
+      .then(res => {
+        if (res.ok) {
+          return res.json();
+        } else {
+          throw new Error();
+        }
+      })
       .then(
         data => {
           this.setState({
@@ -48,12 +51,17 @@ class Home extends Component {
           });
         },
         error => {
+          this.setState({
+            isLoaded: true,
+            error
+          });
           console.log(error);
         }
       );
   };
 
   // FOR TOGGLING F/C
+
   // click btn-left = make Fahrenheit:  Change this.state.btnLeft --> "toggle-active-dark"
   //                                    Change this.state.btnRight --> "toggle-inactive-light"
 
@@ -87,9 +95,24 @@ class Home extends Component {
       btnRight,
       tempScale
     } = this.state;
+
     // error catch
     if (error) {
-      return <div>Error: {error.message}</div>;
+      return (
+        <div>
+          <div className="background-container">
+            <div className="alert alert-warning" role="alert">
+              That ain't no zipcode, partner. Please enter a valid 5-digit US
+              zipcode.
+            </div>
+            <div className="content-container">
+              <a className="btn app-btn-white" href="/">
+                Try again
+              </a>
+            </div>
+          </div>
+        </div>
+      );
     }
 
     // if API data has NOT been loaded, show only the input form
@@ -100,16 +123,19 @@ class Home extends Component {
             <div className="content-container">
               <form onSubmit={this.handleSubmit} className="zipcode-form">
                 <h2>
-                  Enter a city or zipcode here to get current weather
+                  Enter a 5-digit US zipcode here to get current weather
                   conditions.
                 </h2>
                 <input
                   className="input-field"
-                  type="text"
+                  type="number"
+                  required
+                  minLength="5"
+                  maxLength="5"
                   value={this.state.zipCode}
                   onChange={this.handleChange}
                 />
-                <input className="submit-btn" type="submit" value="Submit" />
+                <input className="app-btn" type="submit" value="Submit" />
               </form>
             </div>
           </div>
@@ -117,26 +143,33 @@ class Home extends Component {
       );
     }
 
+    // // if api data HAS been loaded BUT there is an error:
+    // else if (isLoaded && !weather) {
+    //   return <div>Error: {error.message}</div>;
+    // }
+
     // if api data HAS been loaded *AND* weather is populated, display the input form AND the results
     else if (isLoaded && weather) {
       if (tempScale === "fahrenheit") {
         return (
           <div>
-            {/* <Navbar /> */}
             <div className="background-container">
               <div className="content-container">
                 <form onSubmit={this.handleSubmit} className="zipcode-form">
                   <h2>
-                    Enter a city name or zipcode here to get current weather
+                    Enter a 5-digit US zipcode here to get current weather
                     conditions.
                   </h2>
                   <input
                     className="input-field"
-                    type="text"
+                    type="number"
+                    required
+                    minLength="5"
+                    maxLength="5"
                     value={this.state.zipCode}
                     onChange={this.handleChange}
                   />
-                  <input className="submit-btn" type="submit" value="Submit" />
+                  <input className="app-btn" type="submit" value="Submit" />
                 </form>
                 <div className="results-box">
                   <h2>
@@ -189,21 +222,23 @@ class Home extends Component {
       if (tempScale === "celsius") {
         return (
           <div>
-            {/* <Navbar /> */}
             <div className="background-container">
               <div className="content-container">
                 <form onSubmit={this.handleSubmit} className="zipcode-form">
                   <h2>
-                    Enter a city name or zipcode here to get current weather
+                    Enter a 5-digit US zipcode here to get current weather
                     conditions.
                   </h2>
                   <input
                     className="input-field"
-                    type="text"
+                    type="number"
+                    required
+                    minLength="5"
+                    maxLength="5"
                     value={this.state.zipCode}
                     onChange={this.handleChange}
                   />
-                  <input className="submit-btn" type="submit" value="Submit" />
+                  <input className="app-btn" type="submit" value="Submit" />
                 </form>
                 <div className="results-box">
                   <h2>
@@ -256,13 +291,16 @@ class Home extends Component {
     } else {
       return (
         <div>
-          {/* <Navbar /> */}
           <p>Please enter a valid US zipcode.</p>
           <form onSubmit={this.handleSubmit}>
             <label>
               US Zipcode:
               <input
-                type="text"
+                className="input-field"
+                type="number"
+                required
+                minLength="5"
+                maxLength="5"
                 value={this.state.zipCode}
                 onChange={this.handleChange}
               />
