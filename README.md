@@ -1,5 +1,9 @@
 ## my info
 
+To deploy:
+
+git push heroku master
+
 ---
 
 ## create-react-app default info
