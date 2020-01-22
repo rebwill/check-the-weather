@@ -2,13 +2,7 @@
 
 To deploy:
 
-git push heroku master
-
----
-
-## create-react-app default info
-
-## Deploy instructions
+git push heroku-weather master
 
 ---
 
