@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "../styles/index.scss";
-import InputForm from "./inputForm";
 
 class Home extends Component {
   constructor(props) {
@@ -62,7 +61,7 @@ class Home extends Component {
 
   // FOR TOGGLING F/C
 
-  // click btn-left = make Fahrenheit:  Change this.state.btnLeft --> "toggle-active-dark"
+  // Click btn-left = make Fahrenheit:  Change this.state.btnLeft --> "toggle-active-dark"
   //                                    Change this.state.btnRight --> "toggle-inactive-light"
 
   makeFahrenheit = e => {
@@ -74,7 +73,7 @@ class Home extends Component {
     });
   };
 
-  // click btn-right = make Celsius:    Change this.state.btn-left --> "toggle-inactive-light"
+  // Click btn-right = make Celsius:    Change this.state.btn-left --> "toggle-inactive-light"
   //                                    Change this.state.btn-right --> "toggle-active-dark"
 
   makeCelsius = e => {
@@ -96,7 +95,7 @@ class Home extends Component {
       tempScale
     } = this.state;
 
-    // error catch
+    // Error catch for invalid input
     if (error) {
       return (
         <div>
@@ -115,7 +114,7 @@ class Home extends Component {
       );
     }
 
-    // if API data has NOT been loaded, show only the input form
+    // If API data has NOT been loaded, show only the input form
     else if (!isLoaded) {
       return (
         <div>
@@ -143,13 +142,9 @@ class Home extends Component {
       );
     }
 
-    // // if api data HAS been loaded BUT there is an error:
-    // else if (isLoaded && !weather) {
-    //   return <div>Error: {error.message}</div>;
-    // }
-
-    // if api data HAS been loaded *AND* weather is populated, display the input form AND the results
+    // If API data has been loaded *AND* weather is populated, display the input form AND the results
     else if (isLoaded && weather) {
+      // What to display if in Fahrenheit
       if (tempScale === "fahrenheit") {
         return (
           <div>
@@ -219,6 +214,7 @@ class Home extends Component {
           </div>
         );
       }
+      // What to display if in Celsius
       if (tempScale === "celsius") {
         return (
           <div>

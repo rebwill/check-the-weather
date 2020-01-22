@@ -33,6 +33,9 @@ $light-turq: #7ea2ae;
 .navbar-title {
   font-family: $viga;
   font-size: 3rem;
+  @media only screen and (max-width: 768px) {
+    font-size: 2.5rem;
+  }
 }
 
 .nav-link {
@@ -44,11 +47,12 @@ $light-turq: #7ea2ae;
 
 // App
 
-.background-container {
-  height: 100vh;
-  background-image: url("https://images.pexels.com/photos/2317685/pexels-photo-2317685.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
-  background-repeat: no-repeat;
-  background-position: center;
+body {
+  background: url("https://images.pexels.com/photos/2317685/pexels-photo-2317685.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940")
+    no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
   background-size: cover;
 }
 
@@ -57,10 +61,13 @@ $light-turq: #7ea2ae;
   margin-right: 45px;
   margin-top: 45px;
   position: absolute;
+  @media only screen and (max-width: 768px) {
+    margin-left: 2rem;
+    margin-right: 2rem;
+  }
 }
 
 .zipcode-form {
-  // width: 65%;
   background-color: rgb(255, 255, 255);
   padding: 30px;
   border-radius: 20px;
@@ -76,6 +83,11 @@ $light-turq: #7ea2ae;
     height: 35px;
     border-radius: 5px;
     margin-right: 15px;
+  }
+  .input-field {
+    @media only screen and (max-width: 768px) {
+      margin-bottom: 1rem;
+    }
   }
 
   // Getting rid of increment/decrement arrows in input field:
@@ -114,6 +126,7 @@ $light-turq: #7ea2ae;
   background-color: rgb(255, 255, 255);
   padding: 30px;
   border-radius: 20px;
+  margin-bottom: 2rem;
   h2 {
     font-family: $roboto;
     font-weight: 500;
@@ -168,6 +181,7 @@ $light-turq: #7ea2ae;
   border-radius: 20px;
   font-family: $roboto;
   width: 75vw;
+  margin-bottom: 2rem;
   h2 {
     font-family: $roboto;
     font-weight: 500;

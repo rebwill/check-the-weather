@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-// import { Navbar } from "./components/navbar";
 import "../styles/index.scss";
 
 class About extends Component {
@@ -19,7 +18,12 @@ class About extends Component {
                 Router, and is deployed on Heroku via the Heroku CLI.
                 <br />
                 <br />
-                <strong>Why another weather app? 🤔</strong>
+                <strong>
+                  Why another weather app?{" "}
+                  <span role="img" aria-label="thinking-face">
+                    🤔
+                  </span>
+                </strong>
                 <br /> <br />
                 As an avid scuba diver in South Florida, I often check the
                 weather and wind before heading out to a dive site. Because
